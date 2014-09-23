@@ -1,0 +1,13 @@
+
+/*SELECT docid FROM frequency WHERE term = "washington"
+	INTERSECT
+	SELECT docid FROM frequency WHERE term = "taxes"
+	INTERSECT
+	SELECT docid FROM frequency WHERE term = "treasury";*/
+
+SELECT docid, SUM(count) AS score
+FROM frequency 
+WHERE (term = "washington" OR term = "taxes" OR term = "treasury")
+GROUP BY docid
+ORDER BY score;
+

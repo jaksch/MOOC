@@ -1,0 +1,3 @@
+SELECT count(*) FROM (
+	SELECT docid FROM frequency WHERE term = "parliament"
+) x;

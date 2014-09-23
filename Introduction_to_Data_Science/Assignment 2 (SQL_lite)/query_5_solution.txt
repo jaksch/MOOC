@@ -1,0 +1,6 @@
+SELECT count(*) FROM (
+	SELECT docid, SUM(count) as nof_terms 
+	FROM frequency 
+	GROUP BY docid
+	HAVING nof_terms > 300
+) x;

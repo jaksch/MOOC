@@ -1,0 +1,14 @@
+/*This query give the similarity between the two documents*/
+SELECT a.docid, b.docid, SUM(a.count*b.count)
+	FROM frequency a,frequency b 
+	WHERE a.docid='10080_txt_crude' AND b.docid='17035_txt_earn' AND a.term = b.term GROUP BY a.docid, b.docid;
+
+/*This query prints the terms the two documents have in common and the count of every term per document*/
+SELECT a.term, b.term, a.count, b.count, a.count*b.count
+	FROM frequency a,frequency b 
+	WHERE a.docid='10080_txt_crude' AND b.docid='17035_txt_earn' AND a.term = b.term;
+	
+/*This query give the similarity between the two documents as a single number*/
+SELECT SUM(a.count*b.count)
+FROM frequency a,frequency b 
+WHERE a.docid='10080_txt_crude' AND b.docid='17035_txt_earn' AND a.term = b.term;
