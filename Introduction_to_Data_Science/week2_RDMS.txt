@@ -1,0 +1,32 @@
+Introduction to Data Science
+
+	** week 2 - Relational Databases, Relational Algebra **
+	
+	Sets vs. bags; sets don't contain duplicates where bags can contain duplicates.
+	
+	WHERE in SQL -> "select" in RA
+	SELECT in SQL -> "project" in RA
+	
+	"select" (RA) selects rows from a table
+	"project" (RA) eliminates columns from a table
+	
+	SQL example from single relation; R(subject, predicate, object) (Resource Description Framework 
+	(RDF) data):
+	
+		SELECT r1.subject
+		FROM R r1, R r2, R r3
+		WHERE r1.predicate = "knows"
+		AND r2.predicate = "holdsAccount"
+		AND r3.predicate = "accountHomepage"
+		AND r1.object = r2.subject
+		AND r2.object = r3.subject;
+	------------------------------------------------------------------------------------------------
+	Views:
+		A view is a query with a name:
+		
+		CREATE VIEW StorePrice AS
+		SELECT x.store, y.price
+		FROM Purchase x, Product y
+		WHERE x.pid = y.pid
+		
+		This is like a new table StorePrice(store, price), that can be used in other queries.

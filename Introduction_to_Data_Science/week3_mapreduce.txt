@@ -1,0 +1,67 @@
+Introduction to Data Science
+
+	** week 3 - MapReduce **
+	
+	Scalable:
+		out of core processing = use the disk not all in memory
+		"scale up" = more cores, more memory
+		"scale out" = more computers
+		polynomial time algorithms = N data items give no more than N^m operations (N^m / k for
+		parallel processing with k workers)
+		
+		Linear search: N records, N comparisons => algorithmic complexity is order N; O(N)
+		Better than linear search if records is sorted (indexed) => algorithmic complexity is log(N);
+		O(log(N))
+		
+		If we have a computation that need to "touch" every record the task is fundamentally O(N),
+		and indexing won't help, but we can split the dataset because every record is independent
+		(parallel processing) that give complexity O(N/k) for k workers.
+		
+	MapReduce:
+		Data model for map-reduce consists of files, where a file is a bag of (key, value) pairs.
+		In the map phase:
+			Input: a bag of (input_key, value) pairs
+			Output: a bag of (output_key, value) pairs
+		In the reduce phase:
+			Input: a bag of (output_key, bag of values) pairs
+			Output: a bag of (values) pairs
+			
+		Implement relational (SQL) join within map-reduce:
+			Use the join value as the map-reduce key and everything in a row + a table_id as the
+			value.
+			Join tables Employee(Name, SSN) and Department(SSN, DepName) over the variable SSN
+			Before map phase: create a tuple (or string?) for every row in both tables with elements
+				table_name,var1,var2,...
+			Map phase: key=SSN, value=(table_name, var1, var2, ...)
+			Reduce phase: key=SSN, values=[(Employee, Name, SSN), (Department, SSN, DepName)]
+				=> (SSN, Name, DepName)
+		
+		Matrix multiplication within map-reduce: 
+			Compute matrix C = A x B, where A has dim LxM and B MxN
+			Map phase: for each (i,j) in A, emit ((i,k), A[i,j]) for k = 1,...,N AND
+				for each (j,k) in B, emit ((i,k), B[j,k]) for i = 1,...,L
+			Reduce phase: key = (i,k), value = SUM_j(A[i,j]*B[j,k])
+			
+	Hadoop vs. RDBMS: (article from 2009)
+		Comparison of; Hadoop, Vertica (column-oriented DB), DBMS-X (a row-oriented DB)
+		
+		Search and retrieval tasks:
+			Loading: Hadoop and Vertica about the same, X much slower (about x4 times slower).
+		
+			Grep task(need to touch every record): Hadoop slowest, X a little faster and Vertica fastest
+		
+			Selection task: Hadoop much slower that the others, because there is no index, vertica is 
+			again by far the fastest
+		
+		Analytical tasks:
+			Aggregate task: Hadoop slowest, then X, Vertica fastest
+			
+			Join task: Hadoop slowest by far,  X and Vertica about the same (~x35 times faster) 
+			because of indexing
+			
+		Then why use Hadoop (MR)?
+			Fault-tolerance
+			Avoid sequential scans
+			Indexing is now available in Hadoop
+						
+			

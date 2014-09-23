@@ -1,0 +1,31 @@
+Introduction to Data Science
+		
+	** week 8 - Graph Analytics **
+	
+	What is a graph:
+		Graph = (V, E)
+		V is a set of vertices (synonym: nodes)
+		E is a set of edges; each edge is a pair (v_source, v_target) and edges may be directed or
+		undirected
+		
+	Basic graph metrics:
+		|V|, |E|
+		|E| is more interesting than |V|
+		in-degree(v), out-degree(v)
+		
+	Exponential distribution:
+		Random graph has exponential distribution (not common in real life)
+		Best seen when is on a log scale
+	
+	Zipf distribution: (power law distribution)
+		Often human-generated data (as letters in alphabet, words in vocabulary ect.)
+		Best seen in a log-log scale
+		
+	Diameter in a graph:
+		Longest of all shortest paths
+		
+	Connectivity Coefficient:
+		Minimum number of vertices you need to remove that will disconnect the graph
+		
+	Centrality:
+		

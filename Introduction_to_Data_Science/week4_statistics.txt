@@ -1,0 +1,48 @@
+Introduction to Data Science
+
+	** week 4 - Statistics **
+	
+	Statistical Inference:
+		Methods for drawing conclusion about a population from a sample data. Two key methods
+		hypothesis tests and confidence intervals.
+		
+	Effect Size:
+		Effect size = (mean(experimental grp.)-mean(control grp.))/sd
+		But other definitions exist such as odds-ratio or correlation coefficient
+		Because the effect size is standardized, ~0.2 small, ~0.5 medium and ~0.9 large
+		
+	Meta-analysis:
+		Weighted average; simple method is weight by the sample size w_i=n_i/sum(n_j)
+		another way is inverse-variance weight w_i=1/se^2
+		
+	Benford's Law:
+		Potential tool for fraud detection. Measuring the distribution of the first digit, ~30% is
+		1's, ~17% is 2's, ~12% is 3's, ..., ~5% is 9's ( P(d)=log10(1+1/d) )
+		See testingbenfordslaw.com
+		
+	Multiple Hypothesis Testing:
+		Bonferroni Correction: alpha_c=alpha/k (divide by the nuber of hypotheses)
+		Sidak Correction: alpha=1-(1-alpha_c)^k so alpha_c=1-(1-alpha)^(1/k)
+		False Discovery Rate: FDR=FD/D
+		Benjamini-Hochberg Procedure: rank the order of p-values and accept hypothesis with
+		P_i <= rankorder/nof_hyp * alpha
+		
+	The "curse" of Big Data:
+		When you look for patterns in very, very large data sets you are bound to identify
+		coincidences that have no predictive power.
+		
+	Frequentist Approach:
+		P(D|H) probability of seeing this data given the null hypothesis
+		
+	Bayesian Approach:
+		P(H|D) probability of a given outcome, given this data
+		
+	Bayes Theorem:
+		P(H|D) = (P(D|H) * P(H)) / P(D)
+	       |         |       |       |
+		   |         |       |      Marginal: prop. of collecting this data under all possible hypos.
+	       |         |      Prior: prop. of the hyop being true before collecting data
+		   |        Likelihood: prop. of collecting this data when our hypo is true
+		  Posterior: prop. of our hypo being true given the data collected
+	
+	

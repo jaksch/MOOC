@@ -1,0 +1,34 @@
+Introduction to Data Science
+
+	** week 5 - Machine Learning, Part 1 **
+	
+	Entropy:
+		I(X) = -log2(p_x)
+		Expected Information = 'Entropy'
+		H(X) = E(I(X)) = sum_x(p_x * I(x)) = -sum_x(p_x * log2(p_x))
+		Entropy is the prop. that something happens times log2 of that same prop.
+		The higher the entropy is the less predictable is the event.
+		
+	Information Gain:
+		The attribute with the most information reduces entropy, which increases predictability.
+		
+	Decision Trees:
+		Problems with decision trees is that they are expensive to train and prone to overfitting.
+		
+	Ensembles:
+		Pros: better classification performance, more resilience to noise.
+		Cons: time consuming, models become difficult to explain.
+		Bagging: random selecting data points.
+		Boosting: puts more weight to the misclassified data points.
+		
+	Random Forest (ensemble model):
+		Gini Coefficient: measures inequality, Gini(T) = 1 - sum_i(p_i^2)
+		Easy to parallelize.
+		
+	
+	** week 6 - Machine Learning, Part 2 **
+	
+	Support Vector Machines:
+		If not linearly separable in 1D <--1--1-1--2---2-2-1--1---1-->
+		SVM can map the data into a higher dimensional space by applying a kernel.
+	
