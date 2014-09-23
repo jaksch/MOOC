@@ -1,0 +1,43 @@
+Practical Machine Learning
+
+	** Week 1 - Machine Learning Introduction **
+	
+	Issues to consider:
+		Machine learning methods to be interpretable, simple, accurate, fast and scalable.
+		
+	Tradeoffs:
+		Interpretability vs. accuracy
+		Speed vs. accuracy
+		Simplicity vs. accuracy
+		Scalability vs. accuracy
+		
+	Know the benchmarks!
+	
+	Rules of thumbs for predicting study design:
+		60% training
+		20% test
+		20% validation
+		
+	Types of errors:
+		Sensitivity 				-> 	P(pos. test | disease)		=	TP/(TP+FN)
+			(if you want few missed positives)
+		Specificity 				-> 	P(neg. test | no disease)	=	TN/(GP+TN)
+			(If you want few negatives called positives)
+		Positive Predictive Value 	-> 	P(disease | pos. test)		=	TP/(TP+FP)
+		Negative Predictive Value	-> 	P(no disease |neg. test)	=	TN/(FN+TN)
+		Accuracy					-> 	P(correct outcome)			=	(TP+TN)/(TP+FP+FN+TN)
+		
+	ROC curve:
+		X axis: 1-Specificity -> P(FP)
+		Y axis: Sensitivity -> P(TP)
+		
+	Cross Validation:
+		Random sampling:
+			Must be done without replacement
+			Random smapling with replacement is called bootstrap => underestimates of the error			
+		K-fold: 
+			Larger k => less bias, more variance
+			Smaller k => more bias, less variance
+		Leave-one-out is k-fold with n folds.
+		
+	

@@ -1,0 +1,29 @@
+Practical Machine Learning
+
+	** Week 3 - Prediction Models **
+	
+	Trees:
+		Pros: Easy to interpret, better performance in non-linear settings
+		Cons: Easy to overfit
+		Measures of impurity: Misclassification, Gini, Information
+		
+	Bagging
+		Short for bootstrap aggregating.
+		
+	Random forests:
+		Pro: Accuracy
+		Cons: Speed, Interpretability, Overfitting
+		in R: 
+			rfFit <- train(Species ~ ., data = training, method = 'rf', prox = TRUE)
+			getTree(rfFit$finalModel, k=2) ## to see tree number 7 from the random forest model
+			classCenter(training[, c(3, 4)], training$Species, rfFit$finalModel$prox)
+			## to plot class 'centers'
+			
+	Boosting:
+		A subclass is gradient boosting
+		
+	Model Based Prediction:
+		LDA: assumes multivariate Gaussian with same covariances
+		QDA: assumes multivariate Gaussian with different covariances
+		Naive Bayes: assumes independence between features
+		

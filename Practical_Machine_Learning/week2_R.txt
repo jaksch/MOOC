@@ -1,0 +1,22 @@
+Practical Machine Learning
+
+	** Week 2 - R **
+	
+	R functions for plotting:
+		FeaturePlot(... , plot='pairs') (caret package)
+		cut2 (Hmisc package)
+		grid.arrange(p1, p2, ncol = 2) (ggplot2(?) package)
+		prop.table(table.name, 1)
+		
+	R functions for covariate creation:
+		nearZero(data = ..., saveMetrics = TRUE) (caret package)
+		spline basis: bs(..., df = 3) (splines package)
+		
+	Always create from the training set and use the same values to create in the test set.
+	That means that all exploration and model creation and feature building has to happen in the 
+	training set.
+	
+	Trick to colour different points on plot:
+		((spam$type == 'spam')*1 + 1)
+		
+	

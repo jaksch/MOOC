@@ -1,0 +1,19 @@
+Practical Machine Learning
+
+	** Week 4 - More Prediction Models **
+	
+	Regularized regression:
+		Pros: can help with bias/variance tradeoff (slightly bias your model but reduce the 
+		variance), can help with model selection (like LASSO)
+		Cons: can be computationally demanding on large data sets, does not perform as well as
+		random forest and boosting
+		
+	Combining predictors (model ensemble):
+		Build an odd numer of models.
+		See R package caretEnsemble (but it is in development so use at your own risk!)
+		
+	Forecasting (time series data):
+		Look after; trends, seasonal or cycles.
+		use function decompose() in R on time series to inspect for trends, seasonal and random 
+		patterns.
+		
