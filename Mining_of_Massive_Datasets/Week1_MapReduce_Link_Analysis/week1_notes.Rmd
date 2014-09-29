@@ -1,0 +1,65 @@
+---
+title: "MMDS week 1"
+author: "Jakob Schmidt"
+date: "Monday, September 29, 2014"
+output: html_document
+---
+
+Mining of Massive Datasets Week 1
+---
+
+Week 1 materials covers MapReduce and Link Analysis.
+
+### MapReduce
+
+Google motivation example:
+
+* Google indexing 10 billion web pages, with a average size of 20 KB
+* Which gives a dataset of size 200 TB
+* The bottleneck for read data into memory is the disk read bandwidth, which is around 50 MD/sec for modern machines
+* That means that the time it's take to read the entire data set is 4 million seconds or 46+ days
+
+
+Challenges of cluster computing: 
+
+* Node failures, how to keep data available if nodes fail, how to deal with long running computation if nodes fail?
+* Network bottleneck
+* Distributed programming is hard!
+
+What MapReduce does:
+
+* Store data redundantly
+* Move computation close to data
+* Simple programming language
+
+DFS provides global file namespaces, redundancy and availability.
+
+DFS:
+
+* File is split into contiguous chunks (16-60MB)
+* Each chunck replicated (2x-3x)
+* Try to keep replicas in differnet racks
+
+Master node is called Name Node in HDFS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
