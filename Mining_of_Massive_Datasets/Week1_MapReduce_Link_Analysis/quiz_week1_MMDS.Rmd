@@ -130,34 +130,3 @@ for(iter in 1:100) {
 }
 ```
 
-
-
-## Question 4
-
-Suppose our input data to a map-reduce operation consists of integer values (the keys are not important). The map function takes an integer i and produces the list of pairs $(p,i)$ such that $p$ is a prime divisor of $i$. For example, $map(12) = [(2,12), (3,12)]$.
-The reduce function is addition. That is, $reduce(p, [i_1, i_2, ...,i_k])$ is $(p,i_1+i_2+...+i_k)$.
-
-Compute the output, if the input is the set of integers 15, 21, 24, 30, 49.
-
-
-```{r}
-suppressPackageStartupMessages(library(surveillance))
-primeFactors(15)
-primeFactors(21)
-unique(primeFactors(24))
-primeFactors(30)
-primeFactors(49)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
