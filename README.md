@@ -7,4 +7,4 @@ A repo with different MOOC
 
 * Practical Machine Learning by John Hopkins (coursera.org 2014-08-04 to 2014-09-01)
 
-* Mining of Massive Datasets by Standford (coursera.org 2014-09-29 to 2014-11-24)
+* Mining of Massive Datasets by Standford (coursera.org 2014-09-29 to 2014-12-01)
