@@ -1,0 +1,46 @@
+Mining Massive Datasets Course Syllabus
+
+Week 1:
+MapReduce
+Link Analysis -- PageRank
+
+
+Week 2:
+Locality-Sensitive Hashing -- Basics + Applications
+Distance Measures
+Nearest Neighbors
+Frequent Itemsets
+
+
+Week 3:
+Data Stream Mining
+Analysis of Large Graphs
+
+
+Week 4:
+Recommender Systems
+Dimensionality Reduction
+
+
+Week 5:
+Clustering
+Computational Advertising
+
+
+Week 6:
+Support-Vector Machines
+Decision Trees
+MapReduce Algorithms
+
+
+Week 7:
+More About Link Analysis --  Topic-specific PageRank, Link Spam.
+More About Locality-Sensitive Hashing
+
+
+Week 8:
+Catch up week
+
+
+Week 9:
+Finals
