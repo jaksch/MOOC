@@ -1,0 +1,128 @@
+---
+title: "Quiz_week3"
+author: "Jakob Schmidt"
+date: "Thursday, October 23, 2014"
+output: html_document
+---
+
+Mining of Massive Datasets Quiz Week 3
+---
+
+## Question 1
+For the following graph:
+
+![Network 1](figures/quiz_week3_img1.gif)
+
+Write the adjacency matrix A, the degree matrix D, and the Laplacian matrix L. For each, find the sum of all entries and the number of nonzero entries.
+
+### Solution
+```{r}
+## nodes in the graph
+nodes1 <- LETTERS[1:8]
+
+## the adjacency matrix for the graph
+adjacency1 <- matrix(c(0,0,1,0,0,1,0,0,
+                     0,0,0,0,1,0,0,1,
+                     1,0,0,1,0,1,0,0,
+                     0,0,1,0,1,0,1,0,
+                     0,1,0,1,0,0,0,1,
+                     1,0,1,0,0,0,1,0,
+                     0,0,0,1,0,1,0,1,
+                     0,1,0,0,1,0,1,0), nrow = 8, ncol = 8, byrow = FALSE, 
+                     dimnames = list(nodes1, nodes1))
+adjacency1
+
+## the degree matrix for the graph
+nof_degree <- apply(adjacency1, 2, sum)
+degree1 <- diag(nof_degree)
+colnames(degree1) <- nodes1
+rownames(degree1) <- nodes1
+degree1
+
+## the laplacian matrix for the graph
+laplacian1 <- degree1 - adjacency1
+laplacian1
+
+## sum of all entries
+sum(degree1)
+sum(adjacency1)
+sum(laplacian1)
+
+## number of nonzero entries
+sum(degree1 != 0)
+sum(adjacency1 != 0)
+sum(laplacian1 != 0)
+```
+
+
+## Question 2
+You are given the following graph.
+
+![Network 1](figures/quiz_week3_img2.gif)
+
+The goal is to find two clusters in this graph using Spectral Clustering on the Laplacian matrix. Compute the Laplacian of this graph. Then compute the second eigen vector of the Laplacian (the one corresponding to the second smallest eigenvalue).
+
+To cluster the points, we decide to split at the mean value. We say that a node is a tie if its value in the eigen-vector is exactly equal to the mean value. Let's assume that if a point is a tie, we choose its cluster at random.
+
+### Solution
+```{r}
+library(ggplot2)
+
+## nodes in the graph
+nodes2 <- 1:6
+
+## the adjacency matrix for the graph
+adjacency2 <- matrix(c(0,1,1,0,0,0,
+                       1,0,0,1,0,1,
+                       1,0,0,1,0,0,
+                       0,1,1,0,1,0,
+                       0,0,0,1,0,1,
+                       0,1,0,0,1,0), nrow = 6, ncol = 6, byrow = FALSE, 
+                     dimnames = list(nodes2, nodes2))
+adjacency2
+
+## the degree matrix for the graph
+nof_degree <- apply(adjacency2, 2, sum)
+degree2 <- diag(nof_degree)
+colnames(degree2) <- nodes2
+rownames(degree2) <- nodes2
+degree2
+
+## the laplacian matrix for the graph
+laplacian2 <- degree2 - adjacency2
+laplacian2
+
+## find eigenvalues and eigenvectors
+eig <- eigen(laplacian2)
+eig
+
+## lambda_2
+eig_val <- rev(eig$values)[2]
+eig_val
+
+## and the corresponding eigenvector
+eig_vec <- eig$vectors[,5]
+eig_vec
+sum(eig_vec)
+
+plot_data <- data.frame(rank = 1:6,
+                        value = sort(eig_vec))
+ggplot(plot_data, aes(x=rank, y=value)) +
+  geom_point() +
+  geom_line()
+```
+
+So nodes 1 and 3 are in the same cluster.
+Nodes 5 and 6 are in the same cluster.
+And nodes 2 and 4 are ties.
+
+
+
+
+
+
+
+
+
+
+
